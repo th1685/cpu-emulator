@@ -1,0 +1,43 @@
+NOP: no operation
+    byte 1: 0x00 = 0 - unused, 0 - unused
+    byte 2: 0x00 = 0 - unused, 0 - unused
+
+STM: store register in memory
+    byte 1: 0x10 = 1 - instruction, 0-2 - register A-C
+    byte 2: 0xAA = address
+    
+STR: set register to value
+    byte 1: 0x20 = 2 - instruction, 0-2 - register A-C immediate mode, 3-5 - register A-C addressing mode
+    byte 2: 0xAA = value (immediate mode) / address (addressing mode)
+
+JMP: jump
+    byte 1: 0x30 = 3 - instruction, 0-2 - jump to subroutine, unconditional jump, return from subroutine
+    byte 2: address
+
+INC: increment/decrement
+    byte 1: 0x40 = 4 - instruction, 0-1 - increment/decrement
+    byte 2: 0x00 = 0-2 - register A-C, 0 - unused
+
+ADD: add
+    byte 1: 0x50 = 5 - instruction, 0-2 - register A-C immediate mode, 3-5 - register A-C addressing mode
+    byte 2: 0xAA = value (immediate mode) / address (addressing mode)
+
+SUB: subtract
+    byte 1: 0x60 = 6 - instruction, 0-2 - register A-C immediate mode, 3-5 - register A-C addressing mode
+    byte 2: 0xAA = value (immediate mode) / address (addressing mode)
+
+MLT: multiply
+    byte 1: 0x70 = 7 - instruction, 0-2 - register A-C immediate mode, 3-5 - register A-C addressing mode
+    byte 2: 0xAA = value (immediate mode) / address (addressing mode)
+
+DVD: divide
+    byte 1: 0x80 = 8 - instruction, 0-2 - register A-C immediate mode, 3-5 - register A-C addressing mode
+    byte 2: 0xAA = value (immediate mode) / address (addressing mode)
+
+CMP: compare registers
+    byte 1: 0x90 = 9 - instruction, 0-2 - greater than or equal to, less than, equal to
+    byte 2: 0x00 = 0-2 - register A-C, 0-2, register A-C
+
+BRN: branch if compare flag set
+    byte 1: 0xA0 = A - instruction, 0 - unused
+    byte 2: 0x00 = address
